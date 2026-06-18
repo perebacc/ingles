@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudo Completo 7º Ano - Simple Past</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8338ec;
+            --secondary: #ff006e;
+            --tertiary: #ffbe0b;
+            --bg-color: #f8f9fa;
+            --text-color: #2b2d42;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; opacity: 0.9; }
+        
+        h2 { color: var(--primary); margin-bottom: 20px; border-bottom: 3px solid var(--tertiary); display: inline-block; padding-bottom: 5px;}
+        h3 { color: var(--secondary); margin: 20px 0 10px 0; }
+        
+        .section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .highlight {
+            color: var(--secondary);
+            font-weight: bold;
+            background-color: #ffe6f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .formula-box {
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+            text-align: center;
+            border: 2px dashed #ced4da;
+        }
+
+        .rule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .rule-card {
+            background: #f8f4ff;
+            border-left: 5px solid var(--primary);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* Tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: white;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:hover {background-color: #f5f5f5;}
+
+        /* Flashcards */
+        .flashcards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .flashcard {
+            height: 150px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .flashcard-front {
+            background: linear-gradient(135deg, #4361ee, #3a0ca3);
+            color: white;
+        }
+
+        .flashcard-back {
+            background: linear-gradient(135deg, var(--secondary), #ff5400);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-back span, .flashcard-front span {
+            font-size: 0.9rem;
+            font-weight: normal;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        /* Quiz */
+        .question {
+            margin-bottom: 25px;
+            background: #fffafa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .question p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .options {
+            list-style: none;
+        }
+
+        .options li {
+            margin: 10px 0;
+        }
+
+        .options label {
+            display: block;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: 2px solid #e9ecef;
+        }
+
+        .options label:hover {
+            border-color: var(--primary);
+            background: #f8f4ff;
+        }
+
+        input[type="radio"] {
+            margin-right: 15px;
+            transform: scale(1.2);
+            accent-color: var(--primary);
+        }
+
+        button {
+            background: var(--tertiary);
+            color: #2b2d42;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: block;
+            margin: 30px auto 0;
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(255, 190, 11, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 190, 11, 0.6);
+        }
+
+        #quiz-result {
+            text-align: center;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            header p { font-size: 1rem; }
+            .section { padding: 20px 15px; }
+            .flashcards-container { grid-template-columns: repeat(2, 1fr); }
+            th, td { padding: 10px; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>📘 O Guia Definitivo: Simple Past</h1>
+        <p>Tudo o que você precisa saber para gabaritar a prova do 7º ano!</p>
+    </header>
+
+    <div class="section">
+        <h2>1. Para que serve o Simple Past?</h2>
+        <p>Usamos o Passado Simples para falar de ações que <strong>já aconteceram e já terminaram</strong>. A prova sempre vai te dar pistas de que a frase está no passado com estas palavras-chave (Time Expressions):</p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li><strong>Yesterday</strong> (Ontem)</li>
+            <li><strong>Last...</strong> (Last night = noite passada / Last year = ano passado)</li>
+            <li><strong>...Ago</strong> (Two days ago = dois dias atrás)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. Verbos Regulares (A Família do -ED)</h2>
+        <p>Na afirmativa, a regra geral é adicionar <strong>-ED</strong> ao final do verbo. Mas as provas adoram as regras especiais. Veja todas elas:</p>
+        
+        <div class="rule-grid">
+            <div class="rule-card">
+                <h3>Regra Geral</h3>
+                <p>A maioria dos verbos ganha <span class="highlight">-ED</span>.</p>
+                <p>Work ➔ Work<strong>ed</strong></p>
+                <p>Watch ➔ Watch<strong>ed</strong></p>
+            </div>
+            
+            <div class="rule-card">
+                <h3>Terminados em E</h3>
+                <p>Se já tem E, só coloque o <span class="highlight">-D</span>.</p>
+                <p>Dance ➔ Dance<strong>d</strong></p>
+                <p>Live ➔ Live<strong>d</strong></p>
+            </div>
+
+            <div class="rule-card">
+                <h3>Consoante + Y</h3>
+                <p>Tira o Y e coloca <span class="highlight">-IED</span>. (Atenção aqui!)</p>
+                <p>Study ➔ Stud<strong>ied</strong></p>
+                <p>Cry ➔ Cr<strong>ied</strong></p>
+            </div>
+
+            <div class="rule-card">
+                <h3>Vogal + Y</h3>
+                <p>Apenas acrescente o <span class="highlight">-ED</span> normal.</p>
+                <p>Play ➔ Play<strong>ed</strong></p>
+                <p>Stay ➔ Stay<strong>ed</strong></p>
+            </div>
+
+            <div class="rule-card">
+                <h3>Regra do CVC</h3>
+                <p>Consoante-Vogal-Consoante fortes no final? <span class="highlight">Dobre a última letra</span> + ED.</p>
+                <p>Stop ➔ Stop<strong>ped</strong></p>
+                <p>Plan ➔ Plan<strong>ned</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Verbos Irregulares (Tabela de Salvação)</h2>
+        <p>Eles são "rebeldes" e não aceitam o -ED. Eles mudam de forma! Aqui estão os 10 que os professores do 7º ano mais cobram nas provas:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Verbo (Presente)</th>
+                    <th>Passado Irregular</th>
+                    <th>Tradução</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Go</td><td><strong>Went</strong></td><td>Ir / Fui</td></tr>
+                <tr><td>Have</td><td><strong>Had</strong></td><td>Ter / Tive</td></tr>
+                <tr><td>Do</td><td><strong>Did</strong></td><td>Fazer / Fiz</td></tr>
+                <tr><td>Make</td><td><strong>Made</strong></td><td>Fazer (criar) / Fiz</td></tr>
+                <tr><td>Eat</td><td><strong>Ate</strong></td><td>Comer / Comi</td></tr>
+                <tr><td>See</td><td><strong>Saw</strong></td><td>Ver / Vi</td></tr>
+                <tr><td>Buy</td><td><strong>Bought</strong></td><td>Comprar / Comprei</td></tr>
+                <tr><td>Take</td><td><strong>Took</strong></td><td>Pegar, Tomar / Peguei</td></tr>
+                <tr><td>Sleep</td><td><strong>Slept</strong></td><td>Dormir / Dormi</td></tr>
+                <tr><td>Drink</td><td><strong>Drank</strong></td><td>Beber / Bebi</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. A Grande Pegadinha: Negativa e Interrogativa</h2>
+        <p>Preste muita atenção: Quando usamos o ajudante <strong>DID</strong> ou <strong>DIDN'T</strong> na frase, <strong>o verbo volta para a forma normal!</strong> Você NÃO usa o -ED e NÃO usa a forma irregular da tabela.</p>
+
+        <h3>🔴 Forma Negativa</h3>
+        <div class="formula-box">
+            Sujeito + <strong>DIDN'T</strong> + Verbo (NORMAL) + Resto
+        </div>
+        <ul style="margin-left: 20px;">
+            <li>✅ Correto: She <strong>didn't play</strong> soccer. (Ela não jogou futebol)</li>
+            <li>❌ Errado: She didn't <s>played</s> soccer. (O didn't já indica passado!)</li>
+            <li>✅ Correto: I <strong>didn't go</strong> to the party. (Eu não fui à festa)</li>
+            <li>❌ Errado: I didn't <s>went</s> to the party.</li>
+        </ul>
+
+        <h3>🔵 Forma Interrogativa</h3>
+        <div class="formula-box">
+            <strong>DID</strong> + Sujeito + Verbo (NORMAL) + Resto + <strong>?</strong>
+        </div>
+        <ul style="margin-left: 20px;">
+            <li>✅ Correto: <strong>Did</strong> you <strong>watch</strong> TV? (Você assistiu TV?)</li>
+            <li>✅ Correto: <strong>Did</strong> he <strong>eat</strong> pizza? (Ele comeu pizza?)</li>
+        </ul>
+
+        <h3>🟢 Short Answers (Respostas Curtas)</h3>
+        <p>Se a pergunta começa com DID, a resposta curta termina com DID (ou DIDN'T).</p>
+        <div class="formula-box" style="background-color: #e6f8e5; border-color: #8ce08a;">
+            <strong>Yes, + sujeito + did.</strong> <br>
+            <strong>No, + sujeito + didn't.</strong>
+        </div>
+        <p><em>Exemplo: "Did you study?" ➔ "Yes, I did." ou "No, I didn't."</em></p>
+    </div>
+
+    <div class="section">
+        <h2>5. Treino de Memória (Flashcards)</h2>
+        <p>Clique nas cartas para virar. Tente adivinhar como o verbo fica no passado antes de clicar!</p>
+        <div class="flashcards-container">
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Study<br><span>(Estudar)</span></div>
+                    <div class="flashcard-back">Studied<br><span>Regra Consoante+Y</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Stop<br><span>(Parar)</span></div>
+                    <div class="flashcard-back">Stopped<br><span>Regra CVC</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Play<br><span>(Brincar/Jogar)</span></div>
+                    <div class="flashcard-back">Played<br><span>Regra Vogal+Y</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Go<br><span>(Ir)</span></div>
+                    <div class="flashcard-back">Went<br><span>Irregular</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Buy<br><span>(Comprar)</span></div>
+                    <div class="flashcard-back">Bought<br><span>Irregular</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Eat<br><span>(Comer)</span></div>
+                    <div class="flashcard-back">Ate<br><span>Irregular</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Drink<br><span>(Beber)</span></div>
+                    <div class="flashcard-back">Drank<br><span>Irregular</span></div>
+                </div>
+            </div>
+            <div class="flashcard" onclick="this.classList.toggle('flipped')">
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">Live<br><span>(Morar/Viver)</span></div>
+                    <div class="flashcard-back">Lived<br><span>Regra do E</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>6. Simuladão da Prova</h2>
+        <p>Essas questões são no formato exato que os professores usam. Atenção às regras e ao uso do Did/Didn't!</p>
+        
+        <form id="quizForm">
+            <!-- Questão 1: Regra do Y -->
+            <div class="question">
+                <p><strong>1. Qual a forma correta no passado do verbo TRY (tentar)?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q1" value="a"> Tryed</label></li>
+                    <li><label><input type="radio" name="q1" value="b"> Tried</label></li>
+                    <li><label><input type="radio" name="q1" value="c"> Tryd</label></li>
+                </ul>
+            </div>
+
+            <!-- Questão 2: CVC -->
+            <div class="question">
+                <p><strong>2. O verbo PLAN (planejar) termina em Consoante-Vogal-Consoante. Como ele fica no passado?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q2" value="a"> Planed</label></li>
+                    <li><label><input type="radio" name="q2" value="b"> Planned</label></li>
+                    <li><label><input type="radio" name="q2" value="c"> Planyed</label></li>
+                </ul>
+            </div>
+
+            <!-- Questão 3: Irregular Afirmativa -->
+            <div class="question">
+                <p><strong>3. Complete: "We ________ (go) to the beach yesterday."</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q3" value="a"> goed</label></li>
+                    <li><label><input type="radio" name="q3" value="b"> went</label></li>
+                    <li><label><input type="radio" name="q3" value="c"> goes</label></li>
+                </ul>
+            </div>
+
+            <!-- Questão 4: Negativa Pegadinha -->
+            <div class="question">
+                <p><strong>4. Qual é a frase NEGATIVA correta?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q4" value="a"> They didn't studied English.</label></li>
+                    <li><label><input type="radio" name="q4" value="b"> They don't study English.</label></li>
+                    <li><label><input type="radio" name="q4" value="c"> They didn't study English.</label></li>
+                </ul>
+            </div>
+
+            <!-- Questão 5: Interrogativa Pegadinha -->
+            <div class="question">
+                <p><strong>5. Como transformar a frase "She watched TV" em pergunta?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q5" value="a"> Did she watched TV?</label></li>
+                    <li><label><input type="radio" name="q5" value="b"> Did she watch TV?</label></li>
+                    <li><label><input type="radio" name="q5" value="c"> Do she watch TV?</label></li>
+                </ul>
+            </div>
+
+            <!-- Questão 6: Short Answer -->
+            <div class="question">
+                <p><strong>6. "Did your brother clean his bedroom?" - Responda de forma negativa e curta:</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q6" value="a"> No, he didn't.</label></li>
+                    <li><label><input type="radio" name="q6" value="b"> No, he don't.</label></li>
+                    <li><label><input type="radio" name="q6" value="c"> No, he didn't clean.</label></li>
+                </ul>
+            </div>
+
+            <button type="button" onclick="checkQuiz()">Corrigir Meu Quiz</button>
+            <div id="quiz-result"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function checkQuiz() {
+        let score = 0;
+        let total = 6;
+        
+        let q1 = document.querySelector('input[name="q1"]:checked');
+        let q2 = document.querySelector('input[name="q2"]:checked');
+        let q3 = document.querySelector('input[name="q3"]:checked');
+        let q4 = document.querySelector('input[name="q4"]:checked');
+        let q5 = document.querySelector('input[name="q5"]:checked');
+        let q6 = document.querySelector('input[name="q6"]:checked');
+
+        let resultBox = document.getElementById('quiz-result');
+
+        if (!q1 || !q2 || !q3 || !q4 || !q5 || !q6) {
+            resultBox.style.display = "block";
+            resultBox.innerText = "⚠️ Por favor, responda todas as 6 questões antes de corrigir!";
+            resultBox.style.backgroundColor = "#ffe6e6";
+            resultBox.style.color = "#d90429";
+            return;
+        }
+
+        // Respostas corretas
+        if (q1.value === "b") score++; // Tried
+        if (q2.value === "b") score++; // Planned
+        if (q3.value === "b") score++; // went
+        if (q4.value === "c") score++; // didn't study (verbo normal)
+        if (q5.value === "b") score++; // Did she watch (verbo normal)
+        if (q6.value === "a") score++; // No, he didn't.
+
+        resultBox.style.display = "block";
+        
+        if (score === 6) {
+            resultBox.innerHTML = "🏆 NOTA 10! Você acertou " + score + " de " + total + "!<br>Pode ir fazer a prova tranquila!";
+            resultBox.style.backgroundColor = "#e6f8e5";
+            resultBox.style.color = "#2b9348";
+        } else if (score >= 4) {
+            resultBox.innerHTML = "👏 Muito bem! Você acertou " + score + " de " + total + ".<br>Quase perfeito! Dê mais uma olhadinha nas regrinhas em que você tropeçou.";
+            resultBox.style.backgroundColor = "#e0fbfc";
+            resultBox.style.color = "#0077b6";
+        } else {
+            resultBox.innerHTML = "💪 Você acertou " + score + " de " + total + ".<br>Ainda dá para melhorar! Volte nas dicas de DID/DIDN'T e tente de novo.";
+            resultBox.style.backgroundColor = "#fff0f3";
+            resultBox.style.color = "#c1121f";
+        }
+    }
+</script>
+
+</body>
+</html>
